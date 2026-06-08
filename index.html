@@ -7,16 +7,12 @@
 <style>
   *{box-sizing:border-box;margin:0;padding:0}
   body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#f5f5f0;color:#111}
-
-  /* NAV */
   nav{background:#fff;border-bottom:3px solid #EF3340;padding:0 20px;display:flex;align-items:center;height:56px;gap:12px;position:sticky;top:0;z-index:100;box-shadow:0 1px 8px rgba(0,0,0,0.06)}
   .nav-logo{font-size:17px;font-weight:700;letter-spacing:-0.4px}
   .nav-logo span{color:#EF3340}
   .nav-live{margin-left:auto;font-size:12px;color:#888;display:flex;align-items:center;gap:5px}
   .dot{width:7px;height:7px;background:#22c55e;border-radius:50%;animation:pulse 2s infinite}
   @keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
-
-  /* HERO */
   .hero{background:#003087;padding:44px 20px 36px;text-align:center;position:relative}
   .hero::before{content:'';position:absolute;left:0;top:0;width:100%;height:6px;background:#EF3340}
   .hero::after{content:'';position:absolute;left:0;top:6px;width:100%;height:3px;background:#fff}
@@ -25,44 +21,35 @@
   .pills{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
   .pill{background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);color:#fff;font-size:12px;padding:5px 12px;border-radius:100px;font-weight:500}
   .pill.r{background:#EF3340;border-color:#EF3340}
-
-  /* VIKTIG BANNER */
-  .banner{background:#fff;border-left:5px solid #003087;margin:20px 16px 0;border-radius:0 10px 10px 0;padding:14px 16px;max-width:768px;margin-left:auto;margin-right:auto}
+  .banner{background:#fff;border-left:5px solid #003087;margin:20px auto 0;border-radius:0 10px 10px 0;padding:14px 16px;max-width:800px;margin-left:auto;margin-right:auto}
+  .banner{margin:20px 16px 0;max-width:768px}
   .banner-title{font-size:14px;font-weight:700;color:#003087;margin-bottom:4px}
   .banner-text{font-size:13px;color:#444;line-height:1.65}
   .banner-text strong{color:#111}
-
-  /* MAIN */
   .main{max-width:800px;margin:0 auto;padding:24px 16px}
   .sec{font-size:11px;font-weight:700;color:#003087;letter-spacing:0.1em;margin-bottom:14px;display:flex;align-items:center;gap:8px}
   .sec::after{content:'';flex:1;height:1px;background:#dde}
-
-  /* KVALITET */
   .qbox{background:#fff;border:1.5px solid #e8e8f0;border-radius:14px;padding:16px 18px;margin-bottom:24px;display:flex;gap:12px}
   .qbox-icon{font-size:24px;flex-shrink:0}
   .qbox-title{font-size:15px;font-weight:700;color:#111;margin-bottom:3px}
   .qbox-text{font-size:13px;color:#555;line-height:1.65}
-
-  /* KATALOG */
-  .katalog{display:flex;gap:12px;overflow-x:auto;padding-bottom:10px;margin-bottom:8px;-webkit-overflow-scrolling:touch;scrollbar-width:thin}
+  .katalog{display:flex;gap:12px;overflow-x:auto;padding-bottom:10px;margin-bottom:6px;-webkit-overflow-scrolling:touch;scrollbar-width:thin}
   .katalog::-webkit-scrollbar{height:4px}
   .katalog::-webkit-scrollbar-thumb{background:#ddd;border-radius:2px}
   .katalog-hint{font-size:12px;color:#999;margin-bottom:20px}
   .kcard{flex-shrink:0;width:165px;background:#fff;border:1.5px solid #e8e8f0;border-radius:14px;overflow:hidden;cursor:pointer;transition:border-color .15s}
   .kcard:hover{border-color:#003087}
-  .kcard.utsolgt{opacity:0.4}
-  .kcard-imgs{position:relative;height:190px;background:#eee}
-  .kimg{width:100%;height:100%;object-fit:cover;object-position:top;display:block;position:absolute;top:0;left:0;transition:opacity .3s}
+  .kcard.utsolgt{opacity:0.45}
+  .kcard-imgs{position:relative;height:190px;background:#eee;overflow:hidden}
+  .kimg{width:100%;height:100%;object-fit:cover;object-position:top center;display:block;position:absolute;top:0;left:0;transition:opacity .3s}
   .kimg.back{opacity:0}
   .kcard:hover .kimg.front{opacity:0}
   .kcard:hover .kimg.back{opacity:1}
-  .utsolgt-badge{position:absolute;top:8px;left:8px;background:#EF3340;color:#fff;font-size:10px;font-weight:700;padding:3px 8px;border-radius:100px}
+  .utsolgt-badge{position:absolute;top:8px;left:8px;background:#EF3340;color:#fff;font-size:10px;font-weight:700;padding:3px 8px;border-radius:100px;z-index:2}
   .kcard-info{padding:10px 12px 12px}
   .kcard-name{font-size:13px;font-weight:700;color:#111;margin-bottom:2px}
   .kcard-type{font-size:11px;color:#999}
   .kbadge{display:inline-block;font-size:10px;padding:1px 6px;border-radius:100px;background:#fff0e0;color:#a05000;font-weight:600;margin-left:4px;vertical-align:middle}
-
-  /* LAGER */
   .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(148px,1fr));gap:10px;margin-bottom:24px}
   .card{background:#fff;border:1.5px solid #e8e8f0;border-radius:12px;padding:14px}
   .card.empty{opacity:0.35}
@@ -74,8 +61,6 @@
   .sz{font-size:11px;padding:3px 7px;border-radius:100px;background:#e6eeff;color:#003087;border:1px solid #b0c4f8;font-weight:600}
   .sz.z{background:#f5f5f5;color:#ccc;border-color:#e8e8e8;text-decoration:line-through;font-weight:400}
   #loading{text-align:center;padding:40px;color:#999;font-size:14px}
-
-  /* PRIS */
   .prow{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:24px}
   .pcrd{background:#fff;border:1.5px solid #e8e8f0;border-radius:12px;padding:14px;text-align:center}
   .pcrd.hl{border-color:#003087;background:#f0f4ff}
@@ -83,12 +68,8 @@
   .p-val{font-size:22px;font-weight:800;color:#111}
   .p-unit{font-size:11px;color:#bbb;margin-top:2px}
   .p-tag{font-size:10px;background:#003087;color:#fff;padding:2px 8px;border-radius:100px;display:inline-block;margin-bottom:6px;font-weight:700}
-
-  /* FRAKT */
   .fbox{font-size:13px;color:#555;background:#fff;border:1.5px solid #e8e8f0;border-radius:10px;padding:14px 16px;margin-bottom:24px;line-height:1.7}
   .fbox strong{color:#111;font-weight:700}
-
-  /* BESTILL */
   .how{background:#003087;border-radius:14px;padding:22px;margin-bottom:24px}
   .how-title{font-size:18px;font-weight:800;color:#fff;margin-bottom:4px}
   .how-sub{font-size:13px;color:rgba(255,255,255,0.55);margin-bottom:18px}
@@ -96,15 +77,15 @@
   .step{display:flex;align-items:flex-start;gap:12px}
   .sn{min-width:26px;height:26px;border-radius:50%;background:#EF3340;color:#fff;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0}
   .st{font-size:14px;color:rgba(255,255,255,0.88);line-height:1.5;padding-top:4px}
-  .finn-btn{display:block;background:#EF3340;color:#fff;text-align:center;font-size:15px;font-weight:700;padding:16px;border-radius:10px;text-decoration:none;letter-spacing:0.01em}
-  .finn-btn:hover{background:#d42a36}
-
-  /* FAQ */
+  .finn-btn{display:block;background:#EF3340;color:#fff;text-align:center;font-size:15px;font-weight:700;padding:16px;border-radius:10px;text-decoration:none}
   .faq{display:flex;flex-direction:column;gap:10px;margin-bottom:24px}
   .faq-item{background:#fff;border:1.5px solid #e8e8f0;border-radius:12px;padding:14px 16px}
   .faq-q{font-size:14px;font-weight:700;color:#111;margin-bottom:5px}
   .faq-a{font-size:13px;color:#555;line-height:1.65}
-
+  .feedback{background:#f0f4ff;border:1.5px solid #c8d8f8;border-radius:12px;padding:14px 16px;margin-bottom:24px}
+  .feedback-title{font-size:13px;font-weight:700;color:#003087;margin-bottom:4px}
+  .feedback-text{font-size:12px;color:#555;line-height:1.65}
+  .feedback-text a{color:#003087;font-weight:600}
   footer{text-align:center;padding:24px 16px 32px;font-size:12px;color:#bbb}
   @media(max-width:480px){.prow{grid-template-columns:1fr}.hero h1{font-size:24px}}
 </style>
@@ -137,7 +118,7 @@
 <div style="max-width:800px;margin:20px auto 0;padding:0 16px">
   <div class="banner">
     <div class="banner-title">Slik fungerer det</div>
-    <div class="banner-text">Denne siden viser hva som er på lager. <strong>Bestilling skjer via Finn</strong> – trykk på knappen nederst på siden, send melding med ønsket drakt, størrelse, navn, adresse og telefonnummer. Du mottar en Vipps-forespørsel og pakken sendes samme eller neste dag.</div>
+    <div class="banner-text">Denne siden viser hva som er på lager. <strong>Bestilling skjer via Finn</strong> – trykk på knappen nederst, send melding med ønsket drakt, størrelse, navn, adresse og telefonnummer. Du mottar en Vipps-forespørsel og pakken sendes samme eller neste dag.</div>
   </div>
 </div>
 
@@ -186,6 +167,12 @@
       <div class="faq-q">Hvor lang tid tar levering?</div>
       <div class="faq-a">Pakken sendes samme eller neste dag etter betaling. Leveringstid via Posten er normalt 1–3 virkedager.</div>
     </div>
+  </div>
+
+  <p class="sec">TILBAKEMELDING</p>
+  <div class="feedback">
+    <div class="feedback-title">Opplever du noe som ikke stemmer?</div>
+    <div class="feedback-text">Siden er relativt ny og under utvikling. Hvis du ser feil lagerantall, ødelagte bilder eller noe annet som ikke fungerer som det skal – send gjerne en melding på <a href="https://www.finn.no/my-items/details/424020564" target="_blank">Finn-annonsen</a> og gjør meg oppmerksom på det. Setter stor pris på det!</div>
   </div>
 
   <p class="sec">BESTILL HER</p>
