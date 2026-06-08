@@ -3,17 +3,21 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Fotballdrakter</title>
+<title>Fotballdrakter – Norske landslagsdrakter</title>
 <style>
   *{box-sizing:border-box;margin:0;padding:0}
-  body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#f7f7f9;color:#111}
-  nav{background:#fff;border-bottom:3px solid #EF3340;padding:0 20px;display:flex;align-items:center;height:56px;gap:12px;position:sticky;top:0;z-index:100}
+  body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#f5f5f0;color:#111}
+
+  /* NAV */
+  nav{background:#fff;border-bottom:3px solid #EF3340;padding:0 20px;display:flex;align-items:center;height:56px;gap:12px;position:sticky;top:0;z-index:100;box-shadow:0 1px 8px rgba(0,0,0,0.06)}
   .nav-logo{font-size:17px;font-weight:700;letter-spacing:-0.4px}
   .nav-logo span{color:#EF3340}
-  .nav-live{margin-left:auto;font-size:12px;color:#999;white-space:nowrap;display:flex;align-items:center;gap:5px}
+  .nav-live{margin-left:auto;font-size:12px;color:#888;display:flex;align-items:center;gap:5px}
   .dot{width:7px;height:7px;background:#22c55e;border-radius:50%;animation:pulse 2s infinite}
   @keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
-  .hero{background:#003087;padding:40px 20px 32px;text-align:center;position:relative}
+
+  /* HERO */
+  .hero{background:#003087;padding:44px 20px 36px;text-align:center;position:relative}
   .hero::before{content:'';position:absolute;left:0;top:0;width:100%;height:6px;background:#EF3340}
   .hero::after{content:'';position:absolute;left:0;top:6px;width:100%;height:3px;background:#fff}
   .hero h1{font-size:30px;font-weight:800;color:#fff;letter-spacing:-0.8px;margin-bottom:6px;margin-top:8px}
@@ -21,28 +25,44 @@
   .pills{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
   .pill{background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);color:#fff;font-size:12px;padding:5px 12px;border-radius:100px;font-weight:500}
   .pill.r{background:#EF3340;border-color:#EF3340}
+
+  /* VIKTIG BANNER */
+  .banner{background:#fff;border-left:5px solid #003087;margin:20px 16px 0;border-radius:0 10px 10px 0;padding:14px 16px;max-width:768px;margin-left:auto;margin-right:auto}
+  .banner-title{font-size:14px;font-weight:700;color:#003087;margin-bottom:4px}
+  .banner-text{font-size:13px;color:#444;line-height:1.65}
+  .banner-text strong{color:#111}
+
+  /* MAIN */
   .main{max-width:800px;margin:0 auto;padding:24px 16px}
-  .sec{font-size:11px;font-weight:700;color:#003087;letter-spacing:0.1em;margin-bottom:12px;display:flex;align-items:center;gap:8px}
-  .sec::after{content:'';flex:1;height:1px;background:#e0e0e8}
+  .sec{font-size:11px;font-weight:700;color:#003087;letter-spacing:0.1em;margin-bottom:14px;display:flex;align-items:center;gap:8px}
+  .sec::after{content:'';flex:1;height:1px;background:#dde}
+
+  /* KVALITET */
   .qbox{background:#fff;border:1.5px solid #e8e8f0;border-radius:14px;padding:16px 18px;margin-bottom:24px;display:flex;gap:12px}
   .qbox-icon{font-size:24px;flex-shrink:0}
   .qbox-title{font-size:15px;font-weight:700;color:#111;margin-bottom:3px}
   .qbox-text{font-size:13px;color:#555;line-height:1.65}
-  .katalog{display:flex;gap:12px;overflow-x:auto;padding-bottom:10px;margin-bottom:24px;-webkit-overflow-scrolling:touch;scrollbar-width:thin}
+
+  /* KATALOG */
+  .katalog{display:flex;gap:12px;overflow-x:auto;padding-bottom:10px;margin-bottom:8px;-webkit-overflow-scrolling:touch;scrollbar-width:thin}
   .katalog::-webkit-scrollbar{height:4px}
   .katalog::-webkit-scrollbar-thumb{background:#ddd;border-radius:2px}
+  .katalog-hint{font-size:12px;color:#999;margin-bottom:20px}
   .kcard{flex-shrink:0;width:165px;background:#fff;border:1.5px solid #e8e8f0;border-radius:14px;overflow:hidden;cursor:pointer;transition:border-color .15s}
   .kcard:hover{border-color:#003087}
+  .kcard.utsolgt{opacity:0.4}
   .kcard-imgs{position:relative;height:190px;background:#eee}
   .kimg{width:100%;height:100%;object-fit:cover;object-position:top;display:block;position:absolute;top:0;left:0;transition:opacity .3s}
   .kimg.back{opacity:0}
   .kcard:hover .kimg.front{opacity:0}
   .kcard:hover .kimg.back{opacity:1}
-  .flip-hint{position:absolute;bottom:6px;right:6px;background:rgba(0,0,0,0.5);color:#fff;font-size:10px;padding:2px 8px;border-radius:20px;pointer-events:none}
+  .utsolgt-badge{position:absolute;top:8px;left:8px;background:#EF3340;color:#fff;font-size:10px;font-weight:700;padding:3px 8px;border-radius:100px}
   .kcard-info{padding:10px 12px 12px}
   .kcard-name{font-size:13px;font-weight:700;color:#111;margin-bottom:2px}
   .kcard-type{font-size:11px;color:#999}
   .kbadge{display:inline-block;font-size:10px;padding:1px 6px;border-radius:100px;background:#fff0e0;color:#a05000;font-weight:600;margin-left:4px;vertical-align:middle}
+
+  /* LAGER */
   .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(148px,1fr));gap:10px;margin-bottom:24px}
   .card{background:#fff;border:1.5px solid #e8e8f0;border-radius:12px;padding:14px}
   .card.empty{opacity:0.35}
@@ -54,6 +74,8 @@
   .sz{font-size:11px;padding:3px 7px;border-radius:100px;background:#e6eeff;color:#003087;border:1px solid #b0c4f8;font-weight:600}
   .sz.z{background:#f5f5f5;color:#ccc;border-color:#e8e8e8;text-decoration:line-through;font-weight:400}
   #loading{text-align:center;padding:40px;color:#999;font-size:14px}
+
+  /* PRIS */
   .prow{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:24px}
   .pcrd{background:#fff;border:1.5px solid #e8e8f0;border-radius:12px;padding:14px;text-align:center}
   .pcrd.hl{border-color:#003087;background:#f0f4ff}
@@ -61,8 +83,12 @@
   .p-val{font-size:22px;font-weight:800;color:#111}
   .p-unit{font-size:11px;color:#bbb;margin-top:2px}
   .p-tag{font-size:10px;background:#003087;color:#fff;padding:2px 8px;border-radius:100px;display:inline-block;margin-bottom:6px;font-weight:700}
+
+  /* FRAKT */
   .fbox{font-size:13px;color:#555;background:#fff;border:1.5px solid #e8e8f0;border-radius:10px;padding:14px 16px;margin-bottom:24px;line-height:1.7}
   .fbox strong{color:#111;font-weight:700}
+
+  /* BESTILL */
   .how{background:#003087;border-radius:14px;padding:22px;margin-bottom:24px}
   .how-title{font-size:18px;font-weight:800;color:#fff;margin-bottom:4px}
   .how-sub{font-size:13px;color:rgba(255,255,255,0.55);margin-bottom:18px}
@@ -70,12 +96,21 @@
   .step{display:flex;align-items:flex-start;gap:12px}
   .sn{min-width:26px;height:26px;border-radius:50%;background:#EF3340;color:#fff;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0}
   .st{font-size:14px;color:rgba(255,255,255,0.88);line-height:1.5;padding-top:4px}
-  .finn-btn{display:block;background:#EF3340;color:#fff;text-align:center;font-size:15px;font-weight:700;padding:15px;border-radius:10px;text-decoration:none}
+  .finn-btn{display:block;background:#EF3340;color:#fff;text-align:center;font-size:15px;font-weight:700;padding:16px;border-radius:10px;text-decoration:none;letter-spacing:0.01em}
+  .finn-btn:hover{background:#d42a36}
+
+  /* FAQ */
+  .faq{display:flex;flex-direction:column;gap:10px;margin-bottom:24px}
+  .faq-item{background:#fff;border:1.5px solid #e8e8f0;border-radius:12px;padding:14px 16px}
+  .faq-q{font-size:14px;font-weight:700;color:#111;margin-bottom:5px}
+  .faq-a{font-size:13px;color:#555;line-height:1.65}
+
   footer{text-align:center;padding:24px 16px 32px;font-size:12px;color:#bbb}
   @media(max-width:480px){.prow{grid-template-columns:1fr}.hero h1{font-size:24px}}
 </style>
 </head>
 <body>
+
 <nav>
   <svg width="38" height="26" viewBox="0 0 22 16" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0;border-radius:3px">
     <rect width="22" height="16" fill="#EF3340"/>
@@ -99,6 +134,13 @@
   </div>
 </div>
 
+<div style="max-width:800px;margin:20px auto 0;padding:0 16px">
+  <div class="banner">
+    <div class="banner-title">Slik fungerer det</div>
+    <div class="banner-text">Denne siden viser hva som er på lager. <strong>Bestilling skjer via Finn</strong> – trykk på knappen nederst på siden, send melding med ønsket drakt, størrelse, navn, adresse og telefonnummer. Du mottar en Vipps-forespørsel og pakken sendes samme eller neste dag.</div>
+  </div>
+</div>
+
 <div class="main">
   <div class="qbox">
     <div class="qbox-icon">⭐</div>
@@ -108,8 +150,9 @@
     </div>
   </div>
 
-  <p class="sec">KATALOG – hold over for å se baksiden</p>
+  <p class="sec">KATALOG</p>
   <div class="katalog" id="katalog"></div>
+  <p class="katalog-hint">Hold over bildet for å se baksiden av drakten</p>
 
   <p class="sec">TILGJENGELIG NÅ</p>
   <div id="loading">Laster lager...</div>
@@ -123,17 +166,37 @@
   </div>
 
   <p class="sec">FRAKT</p>
-  <div class="fbox">Sender via <strong>Posten</strong> – <strong>76 kr</strong> per pakke uansett antall drakter. Spores og leveres til postkasse eller nærmeste hentested innen <strong>1–3 virkedager</strong>.</div>
+  <div class="fbox">Sender via <strong>Posten</strong> – <strong>76 kr</strong> per pakke uansett antall drakter. Bestiller du flere deler du frakten. Spores og leveres til postkasse eller nærmeste hentested innen <strong>1–3 virkedager</strong>.</div>
 
-  <p class="sec">SLIK BESTILLER DU</p>
+  <p class="sec">OFTE STILTE SPØRSMÅL</p>
+  <div class="faq">
+    <div class="faq-item">
+      <div class="faq-q">Hvordan bestiller jeg?</div>
+      <div class="faq-a">Denne siden er kun en katalog. Send melding på Finn-annonsen med ønsket drakt, størrelse, fullt navn, leveringsadresse og telefonnummer. Du mottar en Vipps-forespørsel – betal, og pakken sendes.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Er dette offisielle drakter?</div>
+      <div class="faq-a">Nei, dette er høykvalitets replika-drakter med samme design som du ser på TV. Ikke offisielle kampdrakter.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Kan jeg kjøpe flere og spare på frakt?</div>
+      <div class="faq-a">Ja! Frakten er 76 kr uansett antall. Kjøper du 2 drakter er prisen 599 kr per stk, og 3 eller flere koster 499 kr per stk.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Hvor lang tid tar levering?</div>
+      <div class="faq-a">Pakken sendes samme eller neste dag etter betaling. Leveringstid via Posten er normalt 1–3 virkedager.</div>
+    </div>
+  </div>
+
+  <p class="sec">BESTILL HER</p>
   <div class="how">
-    <div class="how-title">Send melding på Finn-annonsen</div>
+    <div class="how-title">Send melding på Finn</div>
     <div class="how-sub">Ta med følgende i meldingen din:</div>
     <div class="steps">
       <div class="step"><span class="sn">1</span><span class="st">Hvilken spiller og størrelse (S / M / L / XL)</span></div>
       <div class="step"><span class="sn">2</span><span class="st">Fullt navn og leveringsadresse</span></div>
       <div class="step"><span class="sn">3</span><span class="st">Telefonnummer (for sporingsvarsling fra Posten)</span></div>
-      <div class="step"><span class="sn">4</span><span class="st">Du får Vipps-forespørsel – betal, og pakken sendes samme eller neste dag</span></div>
+      <div class="step"><span class="sn">4</span><span class="st">Du mottar Vipps-forespørsel – betal, og pakken sendes samme eller neste dag</span></div>
     </div>
     <a class="finn-btn" href="https://www.finn.no/my-items/details/424020564" target="_blank">Gå til Finn-annonsen og send melding →</a>
   </div>
@@ -147,20 +210,20 @@ const SKEY='sb_publishable_osfUXvgW8ntQ857PLfvVfA_tNUCoM7z';
 const IMG='https://ucvrywndpelwannahfvz.supabase.co/storage/v1/object/public/drakter/';
 
 const katalogData=[
-  {name:'Solskjær 20',type:'Umbro 1998',retro:true,front:'solskjaer-front.jpg',back:'solskjaer-bak.jpg'},
-  {name:'T. Flo 11',type:'Umbro 1998',retro:true,front:'tflo-front.jpg',back:'tflo-bak.jpg'},
-  {name:'Haaland 9',type:'Hjemme 2024/25',retro:false,front:'haaland-front.jpg',back:'haaland-bak.jpg'},
-  {name:'Ødegaard 10',type:'Hjemme 2024/25',retro:false,front:'odegaard-front.jpg',back:'odegaard-bak.jpg'},
-  {name:'Nusa 20',type:'Hjemme 2024/25',retro:false,front:'nusa-front.jpg',back:'nusa-bak.jpg'},
-  {name:'Sørloth 7',type:'Hjemme 2024/25',retro:false,front:'sorloth-front.jpg',back:'sorloth-bak.jpg'},
+  {name:'Solskjær 20',type:'Umbro 1998',retro:true,front:'solskjaer-front.jpg',back:'solskjaer-bak.jpg',utsolgt:false},
+  {name:'T. Flo 11',type:'Umbro 1998',retro:true,front:'tflo-front.jpg',back:'tflo-bak.jpg',utsolgt:false},
+  {name:'Haaland 9',type:'Hjemme 2024/25',retro:false,front:'haaland-front.jpg',back:'haaland-bak.jpg',utsolgt:false},
+  {name:'Ødegaard 10',type:'Hjemme 2024/25',retro:false,front:'odegaard-front.jpg',back:'odegaard-bak.jpg',utsolgt:false},
+  {name:'Nusa 20',type:'Hjemme 2024/25',retro:false,front:'nusa-front.jpg',back:'nusa-bak.jpg',utsolgt:true},
+  {name:'Sørloth 7',type:'Hjemme 2024/25',retro:false,front:'sorloth-front.jpg',back:'sorloth-bak.jpg',utsolgt:false},
 ];
 
 document.getElementById('katalog').innerHTML=katalogData.map(d=>`
-  <div class="kcard">
+  <div class="kcard ${d.utsolgt?'utsolgt':''}">
     <div class="kcard-imgs">
       <img class="kimg front" src="${IMG}${d.front}" alt="${d.name}" loading="lazy">
       <img class="kimg back" src="${IMG}${d.back}" alt="${d.name} bak" loading="lazy">
-      <span class="flip-hint">Baksiden →</span>
+      ${d.utsolgt?'<span class="utsolgt-badge">Utsolgt</span>':''}
     </div>
     <div class="kcard-info">
       <div class="kcard-name">${d.name}${d.retro?'<span class="kbadge">Retro</span>':''}</div>
