@@ -3,96 +3,291 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Fotballdrakter – Norske landslagsdrakter</title>
+<title>Norske Landslagsdrakter – Haaland, Ødegaard, Sørloth fra 499 kr</title>
+<meta name="description" content="Premium replika-drakter fra det norske landslaget. Haaland, Ødegaard, Sørloth, Solskjær. Fra 499 kr. Frakt 76 kr via Posten.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-  *{box-sizing:border-box;margin:0;padding:0}
-  body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#f5f5f0;color:#111}
-  nav{background:#fff;border-bottom:3px solid #EF3340;padding:0 20px;display:flex;align-items:center;height:56px;gap:12px;position:sticky;top:0;z-index:100;box-shadow:0 1px 8px rgba(0,0,0,0.06)}
-  .nav-logo{font-size:17px;font-weight:700;letter-spacing:-0.4px}
-  .nav-logo span{color:#EF3340}
-  .nav-live{margin-left:auto;font-size:12px;color:#888;display:flex;align-items:center;gap:5px}
-  .dot{width:7px;height:7px;background:#22c55e;border-radius:50%;animation:pulse 2s infinite}
-  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
-  .hero{background:#003087;padding:44px 20px 36px;text-align:center;position:relative}
-  .hero::before{content:'';position:absolute;left:0;top:0;width:100%;height:6px;background:#EF3340}
-  .hero::after{content:'';position:absolute;left:0;top:6px;width:100%;height:3px;background:#fff}
-  .hero h1{font-size:30px;font-weight:800;color:#fff;letter-spacing:-0.8px;margin-bottom:6px;margin-top:8px}
-  .hero-sub{font-size:14px;color:rgba(255,255,255,0.7);margin-bottom:20px}
-  .pills{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
-  .pill{background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);color:#fff;font-size:12px;padding:5px 12px;border-radius:100px;font-weight:500}
-  .pill.r{background:#EF3340;border-color:#EF3340}
-  .banner{background:#fff;border-left:5px solid #003087;margin:20px auto 0;border-radius:0 10px 10px 0;padding:14px 16px;max-width:800px;margin-left:auto;margin-right:auto}
-  .banner{margin:20px 16px 0;max-width:768px}
-  .banner-title{font-size:14px;font-weight:700;color:#003087;margin-bottom:4px}
-  .banner-text{font-size:13px;color:#444;line-height:1.65}
-  .banner-text strong{color:#111}
-  .main{max-width:800px;margin:0 auto;padding:24px 16px}
-  .sec{font-size:11px;font-weight:700;color:#003087;letter-spacing:0.1em;margin-bottom:14px;display:flex;align-items:center;gap:8px}
-  .sec::after{content:'';flex:1;height:1px;background:#dde}
-  .qbox{background:#fff;border:1.5px solid #e8e8f0;border-radius:14px;padding:16px 18px;margin-bottom:24px;display:flex;gap:12px}
-  .qbox-icon{font-size:24px;flex-shrink:0}
-  .qbox-title{font-size:15px;font-weight:700;color:#111;margin-bottom:3px}
-  .qbox-text{font-size:13px;color:#555;line-height:1.65}
-  .katalog{display:flex;gap:12px;overflow-x:auto;padding-bottom:10px;margin-bottom:6px;-webkit-overflow-scrolling:touch;scrollbar-width:thin}
-  .katalog::-webkit-scrollbar{height:4px}
-  .katalog::-webkit-scrollbar-thumb{background:#ddd;border-radius:2px}
-  .katalog-hint{font-size:12px;color:#999;margin-bottom:20px}
-  .kcard{flex-shrink:0;width:165px;background:#fff;border:1.5px solid #e8e8f0;border-radius:14px;overflow:hidden;cursor:pointer;transition:border-color .15s}
-  .kcard:hover{border-color:#003087}
-  .kcard.utsolgt{opacity:0.45}
-  .kcard-imgs{position:relative;height:190px;background:#eee;overflow:hidden}
-  .kimg{width:100%;height:100%;object-fit:cover;object-position:top center;display:block;position:absolute;top:0;left:0;transition:opacity .3s}
-  .kimg.back{opacity:0}
-  .kcard:hover .kimg.front{opacity:0}
-  .kcard:hover .kimg.back{opacity:1}
-  .utsolgt-badge{position:absolute;top:8px;left:8px;background:#EF3340;color:#fff;font-size:10px;font-weight:700;padding:3px 8px;border-radius:100px;z-index:2}
-  .kcard-info{padding:10px 12px 12px}
-  .kcard-name{font-size:13px;font-weight:700;color:#111;margin-bottom:2px}
-  .kcard-type{font-size:11px;color:#999}
-  .kbadge{display:inline-block;font-size:10px;padding:1px 6px;border-radius:100px;background:#fff0e0;color:#a05000;font-weight:600;margin-left:4px;vertical-align:middle}
-  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(148px,1fr));gap:10px;margin-bottom:24px}
-  .card{background:#fff;border:1.5px solid #e8e8f0;border-radius:12px;padding:14px}
-  .card.empty{opacity:0.35}
-  .card-top{display:flex;align-items:flex-start;justify-content:space-between;gap:6px;margin-bottom:2px}
-  .card-name{font-size:14px;font-weight:700;color:#111}
-  .badge-r{font-size:10px;padding:2px 6px;border-radius:100px;background:#fff0e0;color:#a05000;font-weight:600;white-space:nowrap;flex-shrink:0}
-  .card-type{font-size:11px;color:#999;margin-bottom:10px}
-  .sizes{display:flex;gap:4px;flex-wrap:wrap}
-  .sz{font-size:11px;padding:3px 7px;border-radius:100px;background:#e6eeff;color:#003087;border:1px solid #b0c4f8;font-weight:600}
-  .sz.z{background:#f5f5f5;color:#ccc;border-color:#e8e8e8;text-decoration:line-through;font-weight:400}
-  #loading{text-align:center;padding:40px;color:#999;font-size:14px}
-  .prow{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:24px}
-  .pcrd{background:#fff;border:1.5px solid #e8e8f0;border-radius:12px;padding:14px;text-align:center}
-  .pcrd.hl{border-color:#003087;background:#f0f4ff}
-  .p-qty{font-size:11px;color:#999;font-weight:600;letter-spacing:0.04em;margin-bottom:4px}
-  .p-val{font-size:22px;font-weight:800;color:#111}
-  .p-unit{font-size:11px;color:#bbb;margin-top:2px}
-  .p-tag{font-size:10px;background:#003087;color:#fff;padding:2px 8px;border-radius:100px;display:inline-block;margin-bottom:6px;font-weight:700}
-  .fbox{font-size:13px;color:#555;background:#fff;border:1.5px solid #e8e8f0;border-radius:10px;padding:14px 16px;margin-bottom:24px;line-height:1.7}
-  .fbox strong{color:#111;font-weight:700}
-  .how{background:#003087;border-radius:14px;padding:22px;margin-bottom:24px}
-  .how-title{font-size:18px;font-weight:800;color:#fff;margin-bottom:4px}
-  .how-sub{font-size:13px;color:rgba(255,255,255,0.55);margin-bottom:18px}
-  .steps{display:flex;flex-direction:column;gap:12px;margin-bottom:20px}
-  .step{display:flex;align-items:flex-start;gap:12px}
-  .sn{min-width:26px;height:26px;border-radius:50%;background:#EF3340;color:#fff;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-  .st{font-size:14px;color:rgba(255,255,255,0.88);line-height:1.5;padding-top:4px}
-  .finn-btn{display:block;background:#EF3340;color:#fff;text-align:center;font-size:15px;font-weight:700;padding:16px;border-radius:10px;text-decoration:none}
-  .faq{display:flex;flex-direction:column;gap:10px;margin-bottom:24px}
-  .faq-item{background:#fff;border:1.5px solid #e8e8f0;border-radius:12px;padding:14px 16px}
-  .faq-q{font-size:14px;font-weight:700;color:#111;margin-bottom:5px}
-  .faq-a{font-size:13px;color:#555;line-height:1.65}
-  .feedback{background:#f0f4ff;border:1.5px solid #c8d8f8;border-radius:12px;padding:14px 16px;margin-bottom:24px}
-  .feedback-title{font-size:13px;font-weight:700;color:#003087;margin-bottom:4px}
-  .feedback-text{font-size:12px;color:#555;line-height:1.65}
-  .feedback-text a{color:#003087;font-weight:600}
-  footer{text-align:center;padding:24px 16px 32px;font-size:12px;color:#bbb}
-  @media(max-width:480px){.prow{grid-template-columns:1fr}.hero h1{font-size:24px}}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --red:#EF3340;
+  --blue:#003087;
+  --bg:#f1f3f8;
+  --surface:#fff;
+  --text:#080c1c;
+  --muted:#64748b;
+  --border:#e1e5ee;
+}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{font-family:'Barlow',-apple-system,BlinkMacSystemFont,sans-serif;background:var(--bg);color:var(--text);line-height:1.5}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+
+/* ── NAV ── */
+.nav{
+  position:sticky;top:0;z-index:200;
+  background:#fff;border-bottom:4px solid var(--red);
+  height:60px;display:flex;align-items:center;
+  padding:0 20px;gap:12px;
+  box-shadow:0 2px 20px rgba(0,0,0,.09);
+}
+.nav-logo{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:22px;font-weight:900;color:var(--blue);
+}
+.nav-logo b{color:var(--red)}
+.nav-live{
+  margin-left:auto;
+  display:flex;align-items:center;gap:6px;
+  font-size:12px;color:var(--muted);font-weight:600;
+}
+.livedot{
+  width:8px;height:8px;background:#22c55e;border-radius:50%;
+  animation:pulse 2s ease-in-out infinite;
+}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+
+/* ── HERO ── */
+.hero{
+  background:var(--blue);
+  position:relative;overflow:hidden;
+  padding:56px 20px 52px;
+  text-align:center;
+}
+.hero-stripe-r{position:absolute;left:0;top:0;right:0;height:9px;background:var(--red)}
+.hero-stripe-w{position:absolute;left:0;top:9px;right:0;height:4px;background:#fff}
+.hero-flag{
+  position:absolute;right:-5%;top:50%;transform:translateY(-50%);
+  width:55%;max-width:280px;opacity:.05;pointer-events:none;
+}
+.hero-eyebrow{
+  font-size:11px;font-weight:700;letter-spacing:.16em;
+  color:rgba(255,255,255,.5);text-transform:uppercase;
+  margin-top:16px;margin-bottom:14px;
+}
+.hero-h1{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:clamp(50px,13vw,96px);
+  font-weight:900;color:#fff;
+  line-height:.88;letter-spacing:-1px;text-transform:uppercase;
+  margin-bottom:20px;
+}
+.hero-h1 em{color:var(--red);font-style:normal;display:block}
+.hero-sub{
+  font-size:15px;color:rgba(255,255,255,.65);
+  margin-bottom:24px;max-width:310px;margin-left:auto;margin-right:auto;
+}
+.hero-proof{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);
+  border-radius:100px;padding:9px 20px;
+  margin-bottom:26px;
+  font-size:13px;color:rgba(255,255,255,.92);font-weight:600;
+}
+.hero-pills{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
+.pill{
+  background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);
+  color:rgba(255,255,255,.9);
+  font-size:12px;font-weight:600;padding:7px 15px;border-radius:100px;
+}
+.pill.red{background:var(--red);border-color:var(--red);color:#fff}
+
+/* ── WRAP ── */
+.wrap{max-width:820px;margin:0 auto;padding:0 16px}
+
+/* ── SECTION HEADING ── */
+.sh{display:flex;align-items:center;gap:12px;margin:32px 0 14px}
+.sh span{
+  font-size:10px;font-weight:800;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--blue);white-space:nowrap;
+}
+.sh::after{content:'';flex:1;height:1px;background:var(--border)}
+
+/* ── PRICING ── */
+.pricing{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:10px}
+.pc{
+  background:var(--surface);border:2px solid var(--border);
+  border-radius:18px;padding:18px 10px;text-align:center;position:relative;
+}
+.pc.best{border-color:var(--blue);background:#eef2ff}
+.pc-badge{
+  position:absolute;top:-12px;left:50%;transform:translateX(-50%);
+  background:var(--blue);color:#fff;
+  font-size:10px;font-weight:800;letter-spacing:.06em;
+  padding:3px 12px;border-radius:100px;white-space:nowrap;
+}
+.pc-qty{font-size:10px;color:var(--muted);font-weight:700;letter-spacing:.05em;margin-bottom:5px}
+.pc-val{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:32px;font-weight:900;color:var(--text);line-height:1;
+}
+.pc-unit{font-size:11px;color:var(--muted);margin-top:3px}
+.pc-save{font-size:11px;color:#16a34a;font-weight:700;margin-top:5px}
+
+/* ── CATALOG ── */
+.catalog{
+  display:grid;grid-template-columns:repeat(2,1fr);
+  gap:14px;margin-bottom:10px;
+}
+@media(min-width:580px){.catalog{grid-template-columns:repeat(3,1fr)}}
+
+.pcard{
+  background:var(--surface);border:2px solid var(--border);
+  border-radius:20px;overflow:hidden;
+  box-shadow:0 2px 12px rgba(0,0,0,.06);
+  transition:border-color .2s,box-shadow .2s;
+}
+.pcard:hover{border-color:var(--blue);box-shadow:0 6px 24px rgba(0,48,135,.13)}
+.pcard.sold-out{opacity:.65}
+
+.pcard-imgs{
+  position:relative;padding-top:118%;
+  background:#eaecf2;overflow:hidden;cursor:pointer;
+}
+.pcard-imgs img{
+  position:absolute;inset:0;width:100%;height:100%;
+  object-fit:cover;object-position:top center;
+  transition:opacity .35s ease;
+}
+.pcard-imgs .back{opacity:0}
+.pcard:hover .pcard-imgs .front{opacity:0}
+.pcard:hover .pcard-imgs .back{opacity:1}
+.pcard.flipped .pcard-imgs .front{opacity:0}
+.pcard.flipped .pcard-imgs .back{opacity:1}
+
+.pcard-badge{
+  position:absolute;top:10px;left:10px;z-index:2;
+  font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.05em;
+  padding:3px 9px;border-radius:100px;
+}
+.pcard-badge.retro{background:#fffbeb;color:#92400e;border:1px solid #fcd34d}
+.pcard-badge.utsolgt{background:rgba(0,0,0,.65);color:#fff}
+
+.pcard-info{padding:13px 14px 15px}
+.pcard-name{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:22px;font-weight:900;color:var(--text);
+  line-height:1;margin-bottom:2px;
+}
+.pcard-type{font-size:11px;color:var(--muted);font-weight:500;margin-bottom:11px}
+
+.fomo{
+  background:#fff0f1;border:1px solid #fecdd3;border-radius:8px;
+  padding:6px 10px;margin-bottom:10px;
+  font-size:11px;font-weight:800;color:var(--red);
+}
+
+.sizes{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:13px}
+.sz{
+  font-size:12px;font-weight:700;
+  padding:6px 11px;border-radius:8px;line-height:1;
+}
+.sz.a{background:#eff6ff;color:var(--blue);border:1.5px solid #bfdbfe}
+.sz.one{background:#fff0f0;color:var(--red);border:1.5px solid var(--red)}
+.sz.none{background:#f5f5f5;color:#bbb;border:1.5px solid #e8e8e8;text-decoration:line-through;font-weight:500}
+
+.pcard-btn{
+  display:block;width:100%;
+  background:var(--red);color:#fff;
+  text-align:center;font-size:14px;font-weight:800;
+  padding:14px 10px;border-radius:12px;
+  border:none;cursor:pointer;letter-spacing:.02em;
+  transition:background .15s,transform .1s;
+}
+.pcard-btn:hover{background:#d42b36}
+.pcard-btn:active{transform:scale(.98)}
+.pcard-btn.off{background:#e5e7eb;color:#9ca3af;cursor:default;pointer-events:none}
+
+/* ── TRYGG HANDEL ── */
+.trust{
+  background:var(--surface);border:2px solid var(--border);
+  border-radius:20px;padding:20px 18px;margin-bottom:10px;
+}
+.trust-title{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:22px;font-weight:900;color:var(--blue);
+  margin-bottom:16px;
+}
+.trust-items{display:flex;flex-direction:column;gap:14px}
+.trust-item{display:flex;align-items:flex-start;gap:14px}
+.trust-icon{
+  width:46px;height:46px;min-width:46px;
+  background:#eff6ff;border-radius:12px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:22px;
+}
+.trust-t{font-size:14px;font-weight:700;margin-bottom:2px}
+.trust-d{font-size:13px;color:var(--muted);line-height:1.55}
+
+/* ── HOW TO ORDER ── */
+.how{
+  background:var(--blue);border-radius:20px;
+  padding:26px 20px;margin-bottom:10px;
+}
+.how-title{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:30px;font-weight:900;color:#fff;margin-bottom:4px;
+}
+.how-sub{font-size:14px;color:rgba(255,255,255,.55);margin-bottom:20px}
+.how-steps{display:flex;flex-direction:column;gap:14px;margin-bottom:24px}
+.how-step{display:flex;align-items:flex-start;gap:14px}
+.step-n{
+  min-width:28px;height:28px;border-radius:50%;
+  background:var(--red);color:#fff;
+  font-size:13px;font-weight:800;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+.step-t{font-size:14px;color:rgba(255,255,255,.88);line-height:1.5;padding-top:4px}
+.step-t strong{color:#fff}
+.main-btn{
+  display:block;
+  background:var(--red);color:#fff;text-align:center;
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:22px;font-weight:900;
+  padding:18px 20px;border-radius:14px;
+  text-transform:uppercase;letter-spacing:.04em;
+  box-shadow:0 4px 20px rgba(239,51,64,.35);
+  transition:box-shadow .15s,transform .1s;
+}
+.main-btn:hover{box-shadow:0 6px 28px rgba(239,51,64,.48)}
+.main-btn:active{transform:scale(.99)}
+
+/* ── FAQ ── */
+.faq{display:flex;flex-direction:column;gap:10px;margin-bottom:10px}
+.fi{
+  background:var(--surface);border:2px solid var(--border);
+  border-radius:14px;padding:16px 18px;
+}
+.fi-q{font-size:15px;font-weight:700;margin-bottom:6px}
+.fi-a{font-size:13px;color:var(--muted);line-height:1.65}
+
+/* ── FOOTER ── */
+footer{
+  text-align:center;padding:28px 16px 44px;
+  font-size:12px;color:var(--muted);line-height:2;
+}
+
+/* ── LOADING ── */
+#lager-loading{
+  padding:48px 20px;text-align:center;
+  font-size:14px;color:var(--muted);
+}
+
+/* ── MOBILE TWEAKS ── */
+@media(max-width:400px){
+  .pricing{gap:7px}
+  .pc-val{font-size:26px}
+  .catalog{gap:10px}
+  .pcard-name{font-size:18px}
+  .pcard-imgs{padding-top:130%}
+}
 </style>
 </head>
 <body>
 
-<nav>
+<!-- ── NAV ── -->
+<nav class="nav">
   <svg width="38" height="26" viewBox="0 0 22 16" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0;border-radius:3px">
     <rect width="22" height="16" fill="#EF3340"/>
     <rect x="6" width="3" height="16" fill="#fff"/>
@@ -100,149 +295,256 @@
     <rect x="7" width="1" height="16" fill="#003087"/>
     <rect y="7" width="22" height="2" fill="#003087"/>
   </svg>
-  <span class="nav-logo">Fotball<span>drakter</span></span>
-  <span class="nav-live"><span class="dot"></span>Live lager</span>
+  <span class="nav-logo">Fotball<b>drakter</b></span>
+  <span class="nav-live"><span class="livedot"></span>Live lager</span>
 </nav>
 
-<div class="hero">
-  <h1>Norske landslagsdrakter</h1>
-  <div class="hero-sub">VM 2026 er snart her – skaff deg drakten nå</div>
-  <div class="pills">
-    <span class="pill r">Fra 499 kr</span>
-    <span class="pill">Frakt 76 kr via Posten</span>
+<!-- ── HERO ── -->
+<section class="hero">
+  <div class="hero-stripe-r"></div>
+  <div class="hero-stripe-w"></div>
+
+  <!-- Background flag watermark -->
+  <svg class="hero-flag" viewBox="0 0 22 16" xmlns="http://www.w3.org/2000/svg">
+    <rect width="22" height="16" fill="#fff"/>
+    <rect x="6" width="3" height="16" fill="#fff"/>
+    <rect y="6.5" width="22" height="3" fill="#fff"/>
+  </svg>
+
+  <p class="hero-eyebrow">Norsk Landslag · VM 2026</p>
+  <h1 class="hero-h1">
+    Norske
+    <em>Landslags</em>
+    drakter
+  </h1>
+  <p class="hero-sub">VM 2026 er snart her – skaff deg drakten mens det er igjen</p>
+
+  <div class="hero-proof">
+    ⭐ Sendt til over 15 fornøyde kunder
+  </div>
+
+  <div class="hero-pills">
+    <span class="pill red">Fra 499 kr · Spar 200 kr</span>
+    <span class="pill">Frakt 76 kr</span>
     <span class="pill">Vipps-betaling</span>
-    <span class="pill">1–3 dager levering</span>
+    <span class="pill">1–3 dager</span>
   </div>
-</div>
+</section>
 
-<div style="max-width:800px;margin:20px auto 0;padding:0 16px">
-  <div class="banner">
-    <div class="banner-title">Slik fungerer det</div>
-    <div class="banner-text">Denne siden viser hva som er på lager. <strong>Bestilling skjer via Finn</strong> – trykk på knappen nederst, send melding med ønsket drakt, størrelse, navn, adresse og telefonnummer. Du mottar en Vipps-forespørsel og pakken sendes samme eller neste dag.</div>
-  </div>
-</div>
+<!-- ── MAIN CONTENT ── -->
+<div class="wrap">
 
-<div class="main">
-  <div class="qbox">
-    <div class="qbox-icon">⭐</div>
-    <div>
-      <div class="qbox-title">Toppkvalitet replika-drakter</div>
-      <div class="qbox-text">Ikke offisielle kampdrakter, men høykvalitets replika med nøyaktig samme design som du ser på TV. Stoff, trykk og detaljer holder høy standard – til en langt mer tilgjengelig pris enn butikkpris.</div>
+  <!-- PRICING -->
+  <div class="sh"><span>PRIS</span></div>
+  <div class="pricing">
+    <div class="pc">
+      <div class="pc-qty">1 DRAKT</div>
+      <div class="pc-val">699</div>
+      <div class="pc-unit">kr + 76 kr frakt</div>
+    </div>
+    <div class="pc">
+      <div class="pc-qty">2 DRAKTER</div>
+      <div class="pc-val">599</div>
+      <div class="pc-unit">kr/stk + delt frakt</div>
+    </div>
+    <div class="pc best">
+      <div class="pc-badge">BEST DEAL</div>
+      <div class="pc-qty">3+ DRAKTER</div>
+      <div class="pc-val">499</div>
+      <div class="pc-unit">kr/stk + delt frakt</div>
+      <div class="pc-save">Spar 200 kr per drakt</div>
     </div>
   </div>
 
-  <p class="sec">KATALOG</p>
-  <div class="katalog" id="katalog"></div>
-  <p class="katalog-hint">Hold over bildet for å se baksiden av drakten</p>
+  <!-- CATALOG -->
+  <div class="sh"><span>DRAKTER PÅ LAGER</span></div>
+  <p style="font-size:12px;color:var(--muted);margin-bottom:14px;margin-top:-6px">
+    Trykk på bildet for å se baksiden
+  </p>
+  <div id="lager-loading">Laster lager…</div>
+  <div class="catalog" id="catalog" style="display:none"></div>
 
-  <p class="sec">TILGJENGELIG NÅ</p>
-  <div id="loading">Laster lager...</div>
-  <div class="grid" id="grid" style="display:none"></div>
-
-  <p class="sec">PRIS</p>
-  <div class="prow">
-    <div class="pcrd"><div class="p-qty">1 DRAKT</div><div class="p-val">699</div><div class="p-unit">kr + 76 kr frakt</div></div>
-    <div class="pcrd"><div class="p-qty">2 DRAKTER</div><div class="p-val">599</div><div class="p-unit">kr/stk + delt frakt</div></div>
-    <div class="pcrd hl"><div class="p-tag">BEST DEAL</div><div class="p-qty">3+ DRAKTER</div><div class="p-val">499</div><div class="p-unit">kr/stk + delt frakt</div></div>
+  <!-- TRYGG HANDEL -->
+  <div class="sh"><span>TRYGG HANDEL</span></div>
+  <div class="trust">
+    <div class="trust-title">Trygg handel</div>
+    <div class="trust-items">
+      <div class="trust-item">
+        <div class="trust-icon">📦</div>
+        <div>
+          <div class="trust-t">Sendt via Posten med sporings-ID</div>
+          <div class="trust-d">Du mottar sporingsnummer på SMS. Pakken leveres til postkasse eller nærmeste hentested innen 1–3 virkedager.</div>
+        </div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon">👕</div>
+        <div>
+          <div class="trust-t">Premium replika-drakt</div>
+          <div class="trust-d">Ikke offisiell kampdrakt, men høykvalitets replika med nøyaktig samme design som du ser på TV. Stoff og trykk holder høy standard.</div>
+        </div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon">💸</div>
+        <div>
+          <div class="trust-t">Betaling via Vipps</div>
+          <div class="trust-d">Du mottar en Vipps-forespørsel etter bestilling. Kjent, trygt og raskt – ingen kortdetaljer nødvendig.</div>
+        </div>
+      </div>
+    </div>
   </div>
 
-  <p class="sec">FRAKT</p>
-  <div class="fbox">Sender via <strong>Posten</strong> – <strong>76 kr</strong> per pakke uansett antall drakter. Bestiller du flere deler du frakten. Spores og leveres til postkasse eller nærmeste hentested innen <strong>1–3 virkedager</strong>.</div>
-
-  <p class="sec">OFTE STILTE SPØRSMÅL</p>
-  <div class="faq">
-    <div class="faq-item">
-      <div class="faq-q">Hvordan bestiller jeg?</div>
-      <div class="faq-a">Denne siden er kun en katalog. Send melding på Finn-annonsen med ønsket drakt, størrelse, fullt navn, leveringsadresse og telefonnummer. Du mottar en Vipps-forespørsel – betal, og pakken sendes.</div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q">Er dette offisielle drakter?</div>
-      <div class="faq-a">Nei, dette er høykvalitets replika-drakter med samme design som du ser på TV. Ikke offisielle kampdrakter.</div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q">Kan jeg kjøpe flere og spare på frakt?</div>
-      <div class="faq-a">Ja! Frakten er 76 kr uansett antall. Kjøper du 2 drakter er prisen 599 kr per stk, og 3 eller flere koster 499 kr per stk.</div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q">Hvor lang tid tar levering?</div>
-      <div class="faq-a">Pakken sendes samme eller neste dag etter betaling. Leveringstid via Posten er normalt 1–3 virkedager.</div>
-    </div>
-  </div>
-
-  <p class="sec">TILBAKEMELDING</p>
-  <div class="feedback">
-    <div class="feedback-title">Opplever du noe som ikke stemmer?</div>
-    <div class="feedback-text">Siden er relativt ny og under utvikling. Hvis du ser feil lagerantall, ødelagte bilder eller noe annet som ikke fungerer som det skal – send gjerne en melding på <a href="https://www.finn.no/my-items/details/424020564" target="_blank">Finn-annonsen</a> og gjør meg oppmerksom på det. Setter stor pris på det!</div>
-  </div>
-
-  <p class="sec">BESTILL HER</p>
+  <!-- HOW TO ORDER -->
+  <div class="sh"><span>SLIK BESTILLER DU</span></div>
   <div class="how">
     <div class="how-title">Send melding på Finn</div>
-    <div class="how-sub">Ta med følgende i meldingen din:</div>
-    <div class="steps">
-      <div class="step"><span class="sn">1</span><span class="st">Hvilken spiller og størrelse (S / M / L / XL)</span></div>
-      <div class="step"><span class="sn">2</span><span class="st">Fullt navn og leveringsadresse</span></div>
-      <div class="step"><span class="sn">3</span><span class="st">Telefonnummer (for sporingsvarsling fra Posten)</span></div>
-      <div class="step"><span class="sn">4</span><span class="st">Du mottar Vipps-forespørsel – betal, og pakken sendes samme eller neste dag</span></div>
+    <div class="how-sub">Ta med følgende i meldingen din</div>
+    <div class="how-steps">
+      <div class="how-step">
+        <span class="step-n">1</span>
+        <span class="step-t">Hvilken spiller og størrelse <strong>(S / M / L / XL)</strong></span>
+      </div>
+      <div class="how-step">
+        <span class="step-n">2</span>
+        <span class="step-t"><strong>Fullt navn</strong> og leveringsadresse</span>
+      </div>
+      <div class="how-step">
+        <span class="step-n">3</span>
+        <span class="step-t"><strong>Telefonnummer</strong> – påkrevd for sporingsvarsel fra Posten</span>
+      </div>
+      <div class="how-step">
+        <span class="step-n">4</span>
+        <span class="step-t">Du mottar Vipps-forespørsel – betal, og pakken sendes samme eller neste dag</span>
+      </div>
     </div>
-    <a class="finn-btn" href="https://www.finn.no/my-items/details/424020564" target="_blank">Gå til Finn-annonsen og send melding →</a>
+    <a class="main-btn" href="https://www.finn.no/recommerce/forsale/item/439314298" target="_blank" rel="noopener">
+      Gå til Finn og bestill →
+    </a>
   </div>
-</div>
 
-<footer>Live lager · Sist oppdatert <span id="updated"></span></footer>
+  <!-- FAQ -->
+  <div class="sh"><span>SPØRSMÅL OG SVAR</span></div>
+  <div class="faq">
+    <div class="fi">
+      <div class="fi-q">Hvordan bestiller jeg?</div>
+      <div class="fi-a">Trykk på «Bestill på Finn» under ønsket drakt, send melding med drakt, størrelse, fullt navn, adresse og telefonnummer. Du mottar Vipps-forespørsel og pakken sendes.</div>
+    </div>
+    <div class="fi">
+      <div class="fi-q">Er dette offisielle drakter?</div>
+      <div class="fi-a">Nei – dette er premium replika-drakter med nøyaktig samme design som det norske landslaget bruker. Ikke offisielle kampdrakter fra Adidas/Nike.</div>
+    </div>
+    <div class="fi">
+      <div class="fi-q">Kan jeg spare på frakt ved å kjøpe flere?</div>
+      <div class="fi-a">Ja! Frakten er 76 kr uansett antall. Kjøper du 2 drakter er prisen 599 kr/stk. 3 eller flere koster 499 kr/stk – du sparer 200 kr per drakt.</div>
+    </div>
+    <div class="fi">
+      <div class="fi-q">Hvor lang tid tar levering?</div>
+      <div class="fi-a">Pakken sendes samme eller neste dag etter betaling. Via Posten er normalt 1–3 virkedager til postkasse eller hentested.</div>
+    </div>
+    <div class="fi">
+      <div class="fi-q">Hvorfor må jeg oppgi telefonnummer?</div>
+      <div class="fi-a">Posten sender sporingsvarsel på SMS til telefonnummeret som er registrert på pakken. Uten dette kan vi ikke garantere at du får varselet.</div>
+    </div>
+  </div>
+
+</div><!-- /wrap -->
+
+<footer>
+  🇳🇴 Norgesdrakter · Live lager oppdatert <span id="updated"></span><br>
+  Replika-drakter · Sendes via Posten · Vipps-betaling
+</footer>
 
 <script>
-const SURL='https://ucvrywndpelwannahfvz.supabase.co';
-const SKEY='sb_publishable_osfUXvgW8ntQ857PLfvVfA_tNUCoM7z';
-const IMG='https://ucvrywndpelwannahfvz.supabase.co/storage/v1/object/public/drakter/';
+const SURL = 'https://ucvrywndpelwannahfvz.supabase.co';
+const SKEY = 'sb_publishable_osfUXvgW8ntQ857PLfvVfA_tNUCoM7z';
+const IMG  = 'https://ucvrywndpelwannahfvz.supabase.co/storage/v1/object/public/drakter/';
+const FINN = 'https://www.finn.no/recommerce/forsale/item/439314298';
 
-const katalogData=[
-  {name:'Solskjær 20',type:'Umbro 1998',retro:true,front:'solskjaer-front.jpg',back:'solskjaer-bak.jpg',utsolgt:false},
-  {name:'T. Flo 11',type:'Umbro 1998',retro:true,front:'tflo-front.jpg',back:'tflo-bak.jpg',utsolgt:false},
-  {name:'Haaland 9',type:'Hjemme 2024/25',retro:false,front:'haaland-front.jpg',back:'haaland-bak.jpg',utsolgt:false},
-  {name:'Ødegaard 10',type:'Hjemme 2024/25',retro:false,front:'odegaard-front.jpg',back:'odegaard-bak.jpg',utsolgt:false},
-  {name:'Nusa 20',type:'Hjemme 2024/25',retro:false,front:'nusa-front.jpg',back:'nusa-bak.jpg',utsolgt:true},
-  {name:'Sørloth 7',type:'Hjemme 2024/25',retro:false,front:'sorloth-front.jpg',back:'sorloth-bak.jpg',utsolgt:false},
-];
+const IMG_MAP = {
+  'Solskjær': {f:'solskjaer-front.jpg', b:'solskjaer-bak.jpg'},
+  'T. Flo':   {f:'tflo-front.jpg',      b:'tflo-bak.jpg'},
+  'Haaland':  {f:'haaland-front.jpg',   b:'haaland-bak.jpg'},
+  'Ødegaard': {f:'odegaard-front.jpg',  b:'odegaard-bak.jpg'},
+  'Nusa':     {f:'nusa-front.jpg',      b:'nusa-bak.jpg'},
+  'Sørloth':  {f:'sorloth-front.jpg',   b:'sorloth-bak.jpg'},
+};
 
-document.getElementById('katalog').innerHTML=katalogData.map(d=>`
-  <div class="kcard ${d.utsolgt?'utsolgt':''}">
-    <div class="kcard-imgs">
-      <img class="kimg front" src="${IMG}${d.front}" alt="${d.name}" loading="lazy">
-      <img class="kimg back" src="${IMG}${d.back}" alt="${d.name} bak" loading="lazy">
-      ${d.utsolgt?'<span class="utsolgt-badge">Utsolgt</span>':''}
-    </div>
-    <div class="kcard-info">
-      <div class="kcard-name">${d.name}${d.retro?'<span class="kbadge">Retro</span>':''}</div>
-      <div class="kcard-type">${d.type}</div>
-    </div>
-  </div>`).join('');
+const SIZES = ['s','m','l','xl'];
 
-async function load(){
-  try{
-    const r=await fetch(SURL+'/rest/v1/drakter?select=*&order=id',{
-      headers:{'apikey':SKEY,'Authorization':'Bearer '+SKEY}
-    });
-    if(!r.ok)throw new Error(await r.text());
-    const data=await r.json();
-    if(!data.length){document.getElementById('loading').textContent='Ingen drakter funnet.';return;}
-    const S=['s','m','l','xl'];
-    document.getElementById('grid').innerHTML=data.map(d=>{
-      const retro=d.type&&d.type.includes('Retro');
-      const total=S.reduce((a,s)=>a+(d[s]||0),0);
-      const sizes=S.map(s=>{const n=d[s]||0;return`<span class="sz ${n===0?'z':''}">${s.toUpperCase()}${n>1?' ×'+n:''}</span>`;}).join('');
-      return`<div class="card ${total===0?'empty':''}">
-        <div class="card-top"><div class="card-name">${d.spiller} ${d.nummer}</div>${retro?'<span class="badge-r">Retro</span>':''}</div>
-        <div class="card-type">${d.type}</div>
-        <div class="sizes">${sizes}</div>
-      </div>`;
-    }).join('');
-    document.getElementById('loading').style.display='none';
-    document.getElementById('grid').style.display='grid';
-    document.getElementById('updated').textContent=new Date().toLocaleDateString('nb-NO');
-  }catch(e){document.getElementById('loading').textContent='Feil: '+e.message;}
+function sizeHtml(d) {
+  return SIZES.map(sz => {
+    const n = d[sz] || 0;
+    const label = sz.toUpperCase();
+    if (n === 0)  return `<span class="sz none">${label}</span>`;
+    if (n === 1)  return `<span class="sz one">${label}</span>`;
+    return `<span class="sz a">${label}</span>`;
+  }).join('');
 }
-load();
+
+function fomoHtml(d) {
+  const oneSizes = SIZES.filter(sz => (d[sz] || 0) === 1).map(s => s.toUpperCase());
+  if (!oneSizes.length) return '';
+  return `<div class="fomo">⚡ Kun 1 igjen på str. ${oneSizes.join(' og ')}!</div>`;
+}
+
+function renderCard(d) {
+  const total = SIZES.reduce((sum, sz) => sum + (d[sz] || 0), 0);
+  const imgs  = IMG_MAP[d.spiller] || {};
+  const retro = d.type && d.type.toLowerCase().includes('retro');
+
+  return `
+  <div class="pcard${total === 0 ? ' sold-out' : ''}">
+    <div class="pcard-imgs" onclick="flipCard(this.parentElement)">
+      ${imgs.f ? `<img class="front" src="${IMG}${imgs.f}" alt="${d.spiller} ${d.nummer}" loading="lazy">` : ''}
+      ${imgs.b ? `<img class="back"  src="${IMG}${imgs.b}" alt="${d.spiller} ${d.nummer} bak" loading="lazy">` : ''}
+      ${retro         ? '<span class="pcard-badge retro">Retro</span>' : ''}
+      ${total === 0   ? '<span class="pcard-badge utsolgt">Utsolgt</span>' : ''}
+    </div>
+    <div class="pcard-info">
+      <div class="pcard-name">${d.spiller} ${d.nummer}</div>
+      <div class="pcard-type">${d.type || ''}</div>
+      ${fomoHtml(d)}
+      <div class="sizes">${sizeHtml(d)}</div>
+      ${total > 0
+        ? `<a class="pcard-btn" href="${FINN}" target="_blank" rel="noopener">Bestill på Finn →</a>`
+        : `<span class="pcard-btn off">Utsolgt</span>`}
+    </div>
+  </div>`;
+}
+
+async function loadCatalog() {
+  try {
+    const res = await fetch(`${SURL}/rest/v1/drakter?select=*&order=id`, {
+      headers: { apikey: SKEY, Authorization: 'Bearer ' + SKEY }
+    });
+    if (!res.ok) throw new Error(await res.text());
+    const data = await res.json();
+    if (!data.length) { document.getElementById('lager-loading').textContent = 'Ingen drakter funnet.'; return; }
+
+    // Available first, sold out last
+    data.sort((a, b) => {
+      const at = SIZES.reduce((s, sz) => s + (a[sz] || 0), 0);
+      const bt = SIZES.reduce((s, sz) => s + (b[sz] || 0), 0);
+      return (at === 0) - (bt === 0);
+    });
+
+    const catalog = document.getElementById('catalog');
+    catalog.innerHTML = data.map(renderCard).join('');
+    catalog.style.display = 'grid';
+    document.getElementById('lager-loading').style.display = 'none';
+  } catch (e) {
+    document.getElementById('lager-loading').textContent = 'Feil ved lasting: ' + e.message;
+  }
+}
+
+// Tap to flip on touch devices
+function flipCard(card) {
+  if (window.matchMedia('(hover:none)').matches) {
+    card.classList.toggle('flipped');
+  }
+}
+
+document.getElementById('updated').textContent = new Date().toLocaleDateString('nb-NO');
+loadCatalog();
 </script>
 </body>
 </html>
