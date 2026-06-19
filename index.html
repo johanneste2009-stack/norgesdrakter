@@ -511,28 +511,44 @@ function renderCard(d) {
   </div>`;
 }
 
+// Fallback data used when Supabase is unavailable
+const FALLBACK = [
+  {spiller:'Solskjær', nummer:20, type:'Umbro Retro 1998', s:1, m:1, l:0, xl:3},
+  {spiller:'T. Flo',   nummer:11, type:'Umbro Retro 1998', s:0, m:2, l:1, xl:4},
+  {spiller:'Haaland',  nummer:9,  type:'Hjemme 2024/25',   s:0, m:3, l:3, xl:2},
+  {spiller:'Ødegaard', nummer:10, type:'Hjemme 2024/25',   s:0, m:3, l:2, xl:0},
+  {spiller:'Sørloth',  nummer:7,  type:'Hjemme 2024/25',   s:0, m:0, l:1, xl:0},
+  {spiller:'Nusa',     nummer:20, type:'Hjemme 2024/25',   s:0, m:0, l:0, xl:0},
+];
+
+function showCatalog(data) {
+  data.sort((a, b) => {
+    const at = SIZES.reduce((s, sz) => s + (a[sz] || 0), 0);
+    const bt = SIZES.reduce((s, sz) => s + (b[sz] || 0), 0);
+    return (at === 0) - (bt === 0);
+  });
+  const catalog = document.getElementById('catalog');
+  catalog.innerHTML = data.map(renderCard).join('');
+  catalog.style.display = 'grid';
+  document.getElementById('lager-loading').style.display = 'none';
+}
+
 async function loadCatalog() {
   try {
     const res = await fetch(`${SURL}/rest/v1/drakter?select=*&order=id`, {
       headers: { apikey: SKEY, Authorization: 'Bearer ' + SKEY }
     });
-    if (!res.ok) throw new Error(await res.text());
+    if (!res.ok) throw new Error('HTTP ' + res.status);
     const data = await res.json();
-    if (!data.length) { document.getElementById('lager-loading').textContent = 'Ingen drakter funnet.'; return; }
-
-    // Available first, sold out last
-    data.sort((a, b) => {
-      const at = SIZES.reduce((s, sz) => s + (a[sz] || 0), 0);
-      const bt = SIZES.reduce((s, sz) => s + (b[sz] || 0), 0);
-      return (at === 0) - (bt === 0);
-    });
-
-    const catalog = document.getElementById('catalog');
-    catalog.innerHTML = data.map(renderCard).join('');
-    catalog.style.display = 'grid';
-    document.getElementById('lager-loading').style.display = 'none';
+    if (!Array.isArray(data) || !data.length) throw new Error('empty');
+    showCatalog(data);
   } catch (e) {
-    document.getElementById('lager-loading').textContent = 'Feil ved lasting: ' + e.message;
+    // Supabase unavailable – show cached fallback data
+    showCatalog(FALLBACK);
+    const note = document.createElement('p');
+    note.style.cssText = 'font-size:11px;color:var(--muted);text-align:center;margin-top:8px;margin-bottom:16px';
+    note.textContent = 'Viser lagret lager – kontakt oss på Finn for å bekrefte tilgjengelighet.';
+    document.getElementById('catalog').after(note);
   }
 }
 
