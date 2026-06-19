@@ -274,6 +274,72 @@ footer{
   font-size:14px;color:var(--muted);
 }
 
+/* ── FOTMOB HUB ── */
+.fm{
+  background:var(--surface);border:2px solid var(--border);
+  border-radius:20px;overflow:hidden;margin-bottom:10px;
+  box-shadow:0 2px 12px rgba(0,0,0,.06);
+}
+.fm-head{
+  background:var(--red);
+  padding:14px 18px;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.fm-head-title{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:20px;font-weight:900;color:#fff;
+  display:flex;align-items:center;gap:8px;
+}
+.fm-chip{
+  font-size:11px;font-weight:700;
+  background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.3);
+  color:#fff;padding:3px 10px;border-radius:100px;white-space:nowrap;
+}
+.fm-body{padding:16px 18px}
+.fm-lbl{
+  font-size:10px;font-weight:800;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--muted);margin-bottom:10px;
+}
+.fm-match{
+  display:flex;align-items:center;gap:10px;
+  margin-bottom:16px;padding-bottom:16px;
+  border-bottom:1px solid var(--border);
+}
+.fm-team{flex:1;text-align:center}
+.fm-flag{font-size:32px;margin-bottom:4px}
+.fm-tname{font-size:13px;font-weight:700}
+.fm-score{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:52px;font-weight:900;
+  color:var(--blue);line-height:1;letter-spacing:-2px;
+}
+.fm-scorers{
+  display:flex;flex-direction:column;gap:10px;
+  margin-bottom:16px;padding-bottom:16px;
+  border-bottom:1px solid var(--border);
+}
+.fm-scorer{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.fm-scorer-l{display:flex;align-items:center;gap:8px;min-width:0}
+.fm-sname{font-size:14px;font-weight:600;white-space:nowrap}
+.fm-smin{font-size:12px;color:var(--muted)}
+.fm-dbtn{
+  background:var(--red);color:#fff;
+  font-size:11px;font-weight:800;
+  padding:5px 11px;border-radius:100px;
+  border:none;cursor:pointer;flex-shrink:0;
+  transition:opacity .15s;
+}
+.fm-dbtn:hover{opacity:.82}
+.fm-next{display:flex;align-items:flex-start;gap:12px}
+.fm-next-lbl{
+  font-size:10px;font-weight:800;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--muted);
+  white-space:nowrap;padding-top:3px;
+}
+.fm-next-match{font-size:14px;font-weight:700}
+.fm-next-date{font-size:12px;color:var(--muted);margin-top:2px}
+#fm-loading{padding:24px;text-align:center;font-size:13px;color:var(--muted)}
+
 /* ── MOBILE TWEAKS ── */
 @media(max-width:400px){
   .pricing{gap:7px}
@@ -353,6 +419,19 @@ footer{
       <div class="pc-val">499</div>
       <div class="pc-unit">kr/stk + delt frakt</div>
       <div class="pc-save">Spar 200 kr per drakt</div>
+    </div>
+  </div>
+
+  <!-- FOTMOB HUB -->
+  <div class="sh"><span>🇳🇴 NORGE – FOTBALL</span></div>
+  <div class="fm">
+    <div class="fm-head">
+      <div class="fm-head-title">🇳🇴 Norge – Live</div>
+      <span class="fm-chip" id="fm-chip">Laster…</span>
+    </div>
+    <div class="fm-body">
+      <div id="fm-loading">Henter kampdata…</div>
+      <div id="fm-content" style="display:none"></div>
     </div>
   </div>
 
@@ -469,6 +548,12 @@ const IMG_MAP = {
 
 const SIZES = ['s','m','l','xl'];
 
+const CARD_ID = {
+  'Solskjær':'drakt-solskjaer','T. Flo':'drakt-tflo',
+  'Haaland':'drakt-haaland','Ødegaard':'drakt-odegaard',
+  'Nusa':'drakt-nusa','Sørloth':'drakt-sorloth',
+};
+
 function sizeHtml(d) {
   return SIZES.map(sz => {
     const n = d[sz] || 0;
@@ -486,16 +571,17 @@ function fomoHtml(d) {
 }
 
 function renderCard(d) {
-  const total = SIZES.reduce((sum, sz) => sum + (d[sz] || 0), 0);
-  const map   = IMG_MAP[d.spiller] || {};
-  const imgs  = {f: d.img_front || map.f, b: d.img_bak || map.b};
-  const retro = d.type && d.type.toLowerCase().includes('retro');
+  const total  = SIZES.reduce((sum, sz) => sum + (d[sz] || 0), 0);
+  const map    = IMG_MAP[d.spiller] || {};
+  const imgs   = {f: d.img_front || map.f, b: d.img_bak || map.b};
+  const retro  = d.type && d.type.toLowerCase().includes('retro');
+  const cardId = CARD_ID[d.spiller] || '';
 
   return `
-  <div class="pcard${total === 0 ? ' sold-out' : ''}">
+  <div class="pcard${total === 0 ? ' sold-out' : ''}"${cardId ? ` id="${cardId}"` : ''}>
     <div class="pcard-imgs" onclick="flipCard(this.parentElement)">
-      ${imgs.f ? `<img class="front" src="${IMG}${imgs.f}" alt="${d.spiller} ${d.nummer}" loading="lazy">` : ''}
-      ${imgs.b ? `<img class="back"  src="${IMG}${imgs.b}" alt="${d.spiller} ${d.nummer} bak" loading="lazy">` : ''}
+      ${imgs.f ? `<img class="front" src="${imgs.f}" alt="${d.spiller} ${d.nummer}" loading="lazy">` : ''}
+      ${imgs.b ? `<img class="back"  src="${imgs.b}" alt="${d.spiller} ${d.nummer} bak" loading="lazy">` : ''}
       ${retro         ? '<span class="pcard-badge retro">Retro</span>' : ''}
       ${total === 0   ? '<span class="pcard-badge utsolgt">Utsolgt</span>' : ''}
     </div>
@@ -552,6 +638,139 @@ async function loadCatalog() {
   }
 }
 
+// ── FOTMOB HUB ──
+const SCORER_DRAKT = {
+  'Haaland':'drakt-haaland','Ødegaard':'drakt-odegaard',
+  'Sørloth':'drakt-sorloth','Nusa':'drakt-nusa',
+  'Solskjær':'drakt-solskjaer','Flo':'drakt-tflo',
+};
+
+function scorerDraktId(name) {
+  for (const [key, id] of Object.entries(SCORER_DRAKT)) {
+    if (name.toLowerCase().includes(key.toLowerCase())) return id;
+  }
+  return null;
+}
+
+function scrollToDrakt(id) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  el.scrollIntoView({behavior:'smooth', block:'center'});
+  el.style.transition = 'border-color .3s';
+  el.style.borderColor = '#EF3340';
+  setTimeout(() => { el.style.borderColor = ''; }, 2000);
+}
+
+function parseScorerGoals(str) {
+  if (!str) return [];
+  return str.split(';').map(s => s.trim()).filter(Boolean).map(s => {
+    const m = s.match(/^([^\d]+?)\s*[-:]\s*(\d+)/);
+    return m ? {name: m[1].trim(), min: m[2] + "'"} : null;
+  }).filter(Boolean);
+}
+
+function renderFotmob(match, scorers, next) {
+  const scorersHtml = scorers.map(s => {
+    const id = scorerDraktId(s.name);
+    return `<div class="fm-scorer">
+      <div class="fm-scorer-l">
+        <span>⚽</span>
+        <span class="fm-sname">${s.name}</span>
+        <span class="fm-smin">${s.min}</span>
+      </div>
+      ${id ? `<button class="fm-dbtn" onclick="scrollToDrakt('${id}')">Se drakt →</button>` : ''}
+    </div>`;
+  }).join('');
+
+  const nextHtml = next ? `
+    <div class="fm-lbl">Neste kamp</div>
+    <div class="fm-next">
+      <span class="fm-next-lbl">Neste</span>
+      <div>
+        <div class="fm-next-match">${next.match}</div>
+        <div class="fm-next-date">${next.date}${next.time ? ' · ' + next.time : ''}</div>
+      </div>
+    </div>` : '';
+
+  document.getElementById('fm-content').innerHTML = `
+    <div class="fm-lbl">Siste kamp · Sluttresultat</div>
+    <div class="fm-match">
+      <div class="fm-team">
+        <div class="fm-flag">${match.homeFlag}</div>
+        <div class="fm-tname">${match.home}</div>
+      </div>
+      <div class="fm-score">${match.homeScore}–${match.awayScore}</div>
+      <div class="fm-team">
+        <div class="fm-flag">${match.awayFlag}</div>
+        <div class="fm-tname">${match.away}</div>
+      </div>
+    </div>
+    <div class="fm-lbl">Målscorere</div>
+    <div class="fm-scorers">${scorersHtml}</div>
+    ${nextHtml}
+  `;
+  document.getElementById('fm-loading').style.display = 'none';
+  document.getElementById('fm-content').style.display = 'block';
+}
+
+async function loadFotmob() {
+  const FB_MATCH   = {home:'Norge',homeFlag:'🇳🇴',homeScore:4,away:'Irak',awayFlag:'🇮🇶',awayScore:1};
+  const FB_SCORERS = [
+    {name:'Haaland',min:"23'"},{name:'Ødegaard',min:"45'"},
+    {name:'Sørloth',min:"67'"},{name:'Nusa',min:"89'"},
+  ];
+  try {
+    const tr = await fetch('https://www.thesportsdb.com/api/v1/json/3/searchteams.php?t=Norway');
+    const td = await tr.json();
+    const norway = (td.teams || []).find(t =>
+      t.strSport === 'Soccer' && t.strCountry === 'Norway'
+    );
+    if (!norway) throw new Error('not found');
+
+    const [lr, nr] = await Promise.all([
+      fetch(`https://www.thesportsdb.com/api/v1/json/3/eventslast.php?id=${norway.idTeam}`),
+      fetch(`https://www.thesportsdb.com/api/v1/json/3/eventsnext.php?id=${norway.idTeam}`),
+    ]);
+    const ld = await lr.json();
+    const nd = await nr.json();
+
+    const ev = (ld.results || [])[0];
+    if (!ev) throw new Error('no event');
+
+    const isHome   = ev.strHomeTeam === 'Norway';
+    const norScore = parseInt(isHome ? ev.intHomeScore : ev.intAwayScore) || 0;
+    const oppScore = parseInt(isHome ? ev.intAwayScore : ev.intHomeScore) || 0;
+    const oppName  = isHome ? ev.strAwayTeam : ev.strHomeTeam;
+    const scorers  = parseScorerGoals(isHome ? ev.strHomeGoalDetails : ev.strAwayGoalDetails);
+
+    const match = {
+      home: isHome ? 'Norge' : oppName, homeFlag: isHome ? '🇳🇴' : '🏳',
+      homeScore: isHome ? norScore : oppScore,
+      away: isHome ? oppName : 'Norge', awayFlag: isHome ? '🏳' : '🇳🇴',
+      awayScore: isHome ? oppScore : norScore,
+    };
+
+    let next = null;
+    const nev = (nd.events || [])[0];
+    if (nev) {
+      const nh   = nev.strHomeTeam === 'Norway';
+      const nopp = nh ? nev.strAwayTeam : nev.strHomeTeam;
+      const dt   = new Date(nev.dateEvent);
+      next = {
+        match: nh ? `Norge – ${nopp}` : `${nopp} – Norge`,
+        date:  dt.toLocaleDateString('nb-NO', {day:'numeric',month:'long',year:'numeric'}),
+        time:  nev.strTime ? nev.strTime.slice(0,5) : '',
+      };
+    }
+
+    document.getElementById('fm-chip').textContent = 'Live data';
+    renderFotmob(match, scorers.length ? scorers : FB_SCORERS, next);
+  } catch(e) {
+    document.getElementById('fm-chip').textContent = 'Siste kjente kamp';
+    renderFotmob(FB_MATCH, FB_SCORERS, null);
+  }
+}
+
 // Tap to flip on touch devices
 function flipCard(card) {
   if (window.matchMedia('(hover:none)').matches) {
@@ -561,6 +780,7 @@ function flipCard(card) {
 
 document.getElementById('updated').textContent = new Date().toLocaleDateString('nb-NO');
 loadCatalog();
+loadFotmob();
 </script>
 </body>
 </html>
