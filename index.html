@@ -456,16 +456,15 @@ footer{
 <script>
 const SURL = 'https://ucvrywndpelwannahfvz.supabase.co';
 const SKEY = 'sb_publishable_osfUXvgW8ntQ857PLfvVfA_tNUCoM7z';
-const IMG  = 'https://ucvrywndpelwannahfvz.supabase.co/storage/v1/object/public/drakter/';
 const FINN = 'https://www.finn.no/recommerce/forsale/item/439314298';
 
 const IMG_MAP = {
-  'Solskjær': {f:'solskjaer-front.jpg', b:'solskjaer-bak.jpg'},
-  'T. Flo':   {f:'tflo-front.jpg',      b:'tflo-bak.jpg'},
-  'Haaland':  {f:'haaland-front.jpg',   b:'haaland-bak.jpg'},
-  'Ødegaard': {f:'odegaard-front.jpg',  b:'odegaard-bak.jpg'},
-  'Nusa':     {f:'nusa-front.jpg',      b:'nusa-bak.jpg'},
-  'Sørloth':  {f:'sorloth-front.jpg',   b:'sorloth-bak.jpg'},
+  'Solskjær': {f:'https://i.ibb.co/hJ8vcZYB/solskjaer-front.jpg', b:'https://i.ibb.co/7dR30Qb3/solskjaer-bak.jpg'},
+  'T. Flo':   {f:'https://i.ibb.co/B2YLYzLF/tflo-front.jpg',      b:'https://i.ibb.co/b0JpxgX/tflo-bak.jpg'},
+  'Haaland':  {f:'https://i.ibb.co/Tqpwwp0D/haaland-front.jpg',   b:'https://i.ibb.co/fVCRB1BN/haaland-bak.jpg'},
+  'Ødegaard': {f:'https://i.ibb.co/KzN0w9ff/odegaard-front.jpg',  b:'https://i.ibb.co/pBJ3ZKsQ/odegaard-bak.jpg'},
+  'Nusa':     {f:'https://i.ibb.co/Y79BjZfr/nusa-front.jpg',      b:'https://i.ibb.co/rRkn03sd/nusa-bak.jpg'},
+  'Sørloth':  {f:'https://i.ibb.co/RGdjfrhs/sorloth-front.jpg',   b:'https://i.ibb.co/bwLf8FN/sorloth-bak.jpg'},
 };
 
 const SIZES = ['s','m','l','xl'];
@@ -488,7 +487,8 @@ function fomoHtml(d) {
 
 function renderCard(d) {
   const total = SIZES.reduce((sum, sz) => sum + (d[sz] || 0), 0);
-  const imgs  = IMG_MAP[d.spiller] || {};
+  const map   = IMG_MAP[d.spiller] || {};
+  const imgs  = {f: d.img_front || map.f, b: d.img_bak || map.b};
   const retro = d.type && d.type.toLowerCase().includes('retro');
 
   return `
