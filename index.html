@@ -96,6 +96,12 @@ a{color:inherit;text-decoration:none}
   font-size:16px;font-weight:700;color:#fff;letter-spacing:.01em;
   margin-bottom:24px;max-width:320px;margin-left:auto;margin-right:auto;
 }
+.hero-record{
+  position:relative;z-index:2;
+  font-size:12px;font-weight:700;color:rgba(255,255,255,.6);
+  letter-spacing:.04em;text-transform:uppercase;
+  margin-bottom:18px;
+}
 .hero-proof{
   display:inline-flex;align-items:center;gap:8px;
   background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);
@@ -416,12 +422,18 @@ footer::before{
 }
 .fm-next-match{font-size:14px;font-weight:700}
 .fm-next-date{font-size:12px;color:var(--muted);margin-top:2px}
+.fm-countdown{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:13px;font-weight:800;color:var(--red);
+  margin-top:6px;letter-spacing:.01em;
+}
 .fm-standings{display:flex;flex-direction:column;gap:6px}
 .fm-srow{
-  display:grid;grid-template-columns:18px 1fr 32px;
+  display:grid;grid-template-columns:18px 1fr 36px 32px;
   font-size:13px;color:var(--text);align-items:center;
 }
 .fm-srow span:first-child{color:var(--muted);font-weight:700}
+.fm-srow span:nth-child(3){text-align:right;color:var(--muted);font-size:12px}
 .fm-srow span:last-child{text-align:right;font-weight:700}
 .fm-srow-nor{font-weight:800;color:var(--blue)}
 
@@ -478,6 +490,8 @@ footer::before{
     drakter
   </h1>
   <p class="hero-sub">🇳🇴 NÅ ER VM HER — bær drakten med stolthet</p>
+
+  <p class="hero-record">2 av 2 — Norge er ubeseiret i VM</p>
 
   <div class="hero-proof">
     ⭐ Sendt til 30+ fornøyde kunder
@@ -769,18 +783,18 @@ function scrollToDrakt(id) {
   setTimeout(() => { el.style.borderColor = ''; }, 2000);
 }
 
-const FB_MATCH    = {home:'Norge',homeFlag:'🇳🇴',homeScore:4,away:'Irak',awayFlag:'🇮🇶',awayScore:1};
+const FB_MATCH    = {home:'Norge',homeFlag:'🇳🇴',homeScore:3,away:'Senegal',awayFlag:'🇸🇳',awayScore:2};
 const FB_SCORERS  = [
-  {name:'Haaland',min:"29', 43'"},
-  {name:'Østigard',min:"76'"},
-  {name:'Hussein',min:"90+6' (SM)"},
+  {name:'Holmgren Pedersen',min:"43'"},
+  {name:'Haaland',min:"48', 58'"},
 ];
-const FB_NEXT     = {match:'Norge – Senegal', date:'tirsdag 23. juni', time:'02:00 New York'};
+const FB_NEXT     = {match:'Norge – Frankrike', date:'fredag 26. juni', time:'21:00 · Boston Stadium'};
+const FB_NEXT_DATE = '2026-06-26T21:00:00';
 const FB_STANDINGS = [
-  {pos:1, team:'Norge',     p:3},
-  {pos:2, team:'Frankrike', p:3},
-  {pos:3, team:'Senegal',   p:0},
-  {pos:4, team:'Irak',      p:0},
+  {pos:1, team:'Norge',     sp:2, p:6},
+  {pos:2, team:'Frankrike', sp:2, p:3},
+  {pos:3, team:'Senegal',   sp:2, p:0},
+  {pos:4, team:'Irak',      sp:2, p:0},
 ];
 
 function renderFotmob() {
@@ -798,7 +812,7 @@ function renderFotmob() {
 
   const standingsHtml = FB_STANDINGS.map(r => `
     <div class="fm-srow${r.team === 'Norge' ? ' fm-srow-nor' : ''}">
-      <span>${r.pos}</span><span>${r.team}</span><span>${r.p}p</span>
+      <span>${r.pos}</span><span>${r.team}</span><span>${r.sp}sp</span><span>${r.p}p</span>
     </div>`).join('');
 
   document.getElementById('fm-content').innerHTML = `
@@ -822,6 +836,7 @@ function renderFotmob() {
       <div>
         <div class="fm-next-match">${FB_NEXT.match}</div>
         <div class="fm-next-date">${FB_NEXT.date} · ${FB_NEXT.time}</div>
+        <div class="fm-countdown" id="fm-countdown"></div>
       </div>
     </div>
     <div class="fm-lbl">Gruppe I</div>
@@ -829,8 +844,22 @@ function renderFotmob() {
   `;
 }
 
+function updateCountdown() {
+  const el = document.getElementById('fm-countdown');
+  if (!el) return;
+  const diff = new Date(FB_NEXT_DATE) - new Date();
+  if (diff <= 0) { el.textContent = 'Kampen har startet!'; return; }
+  const d = Math.floor(diff / 86400000);
+  const h = Math.floor(diff % 86400000 / 3600000);
+  const m = Math.floor(diff % 3600000 / 60000);
+  const s = Math.floor(diff % 60000 / 1000);
+  el.textContent = `⏱ ${d}d ${h}t ${m}m ${s}s til avspark`;
+}
+
 function loadFotmob() {
   renderFotmob();
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
 }
 
 // Tap to flip on touch devices
