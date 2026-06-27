@@ -491,7 +491,7 @@ footer::before{
   </h1>
   <p class="hero-sub">🇳🇴 NÅ ER VM HER — bær drakten med stolthet</p>
 
-  <p class="hero-record">2 av 2 — Norge er ubeseiret i VM</p>
+  <p class="hero-record">Norge er i 16-delsfinalen — VM fortsetter!</p>
 
   <div class="hero-proof">
     ⭐ Sendt til 30+ fornøyde kunder
@@ -721,11 +721,11 @@ function renderCard(d) {
 
 // Fallback data used when Supabase is unavailable
 const FALLBACK = [
-  {spiller:'Solskjær', nummer:20, type:'Umbro Retro 1998', s:1, m:1, l:0, xl:3},
-  {spiller:'T. Flo',   nummer:11, type:'Umbro Retro 1998', s:0, m:2, l:1, xl:4},
-  {spiller:'Haaland',  nummer:9,  type:'Hjemme 2024/25',   s:0, m:3, l:3, xl:2},
-  {spiller:'Ødegaard', nummer:10, type:'Hjemme 2024/25',   s:0, m:3, l:2, xl:0},
-  {spiller:'Sørloth',  nummer:7,  type:'Hjemme 2024/25',   s:0, m:0, l:1, xl:0},
+  {spiller:'Solskjær', nummer:20, type:'Umbro Retro 1998', s:1, m:0, l:0, xl:3},
+  {spiller:'T. Flo',   nummer:11, type:'Umbro Retro 1998', s:0, m:2, l:2, xl:3},
+  {spiller:'Haaland',  nummer:9,  type:'Hjemme 2024/25',   s:0, m:3, l:4, xl:0},
+  {spiller:'Ødegaard', nummer:10, type:'Hjemme 2024/25',   s:0, m:3, l:1, xl:0},
+  {spiller:'Sørloth',  nummer:7,  type:'Hjemme 2024/25',   s:0, m:0, l:1, xl:1},
   {spiller:'Nusa',     nummer:20, type:'Hjemme 2024/25',   s:0, m:0, l:0, xl:0},
 ];
 
@@ -783,18 +783,19 @@ function scrollToDrakt(id) {
   setTimeout(() => { el.style.borderColor = ''; }, 2000);
 }
 
-const FB_MATCH    = {home:'Norge',homeFlag:'🇳🇴',homeScore:3,away:'Senegal',awayFlag:'🇸🇳',awayScore:2};
+const FB_MATCH    = {home:'Norge',homeFlag:'🇳🇴',homeScore:1,away:'Frankrike',awayFlag:'🇫🇷',awayScore:4};
 const FB_SCORERS  = [
-  {name:'Holmgren Pedersen',min:"43'"},
-  {name:'Haaland',min:"48', 58'"},
+  {name:'Aasgaard', min:"21'", flag:'🇳🇴'},
+  {name:'Dembélé',  min:"7', 20', 32'", flag:'🇫🇷'},
+  {name:'Doué',     min:"90+4'", flag:'🇫🇷'},
 ];
-const FB_NEXT     = {match:'Norge – Frankrike', date:'fredag 26. juni', time:'21:00 · Boston Stadium'};
-const FB_NEXT_DATE = '2026-06-26T21:00:00';
+const FB_NEXT     = {match:'Elfenbenskysten – Norge', date:'tirsdag 30. juni', time:'19:00 · Dallas Stadium'};
+const FB_NEXT_DATE = '2026-06-30T19:00:00';
 const FB_STANDINGS = [
-  {pos:1, team:'Frankrike', sp:2, p:6},
-  {pos:2, team:'Norge',     sp:2, p:6},
-  {pos:3, team:'Senegal',   sp:2, p:0},
-  {pos:4, team:'Irak',      sp:2, p:0},
+  {pos:1, team:'Frankrike', sp:3, p:9},
+  {pos:2, team:'Norge',     sp:3, p:6},
+  {pos:3, team:'Senegal',   sp:3, p:3},
+  {pos:4, team:'Irak',      sp:3, p:0},
 ];
 
 function renderFotmob() {
@@ -802,7 +803,7 @@ function renderFotmob() {
     const id = scorerDraktId(s.name);
     return `<div class="fm-scorer">
       <div class="fm-scorer-l">
-        <span>⚽</span>
+        <span>${s.flag || '⚽'}</span>
         <span class="fm-sname">${s.name}</span>
         <span class="fm-smin">${s.min}</span>
       </div>
